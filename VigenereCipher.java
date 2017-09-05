@@ -47,32 +47,32 @@ class VigenereCipher
         else
         {
         
-        if(key.length() >= en.length())
-        {
-            for(int i =0; i<en.length(); i++)
-            {
-                temp[i] = key.charAt(i);
-            }
-        }
-        else // To wrap around if needed and use of remainder and quotient to duplicate the key if too small.
-        {
-            int fullIndex = en.length() / key.length();
-            int partIndex = en.length() % key.length();
-            for(int i = 0; i < fullIndex; i++)
-            {
-                int j = (i * key.length());
-                for(int n = 0; n < key.length(); n++)
-                {
-                    temp[j] = key.charAt(n);
-                    j++;
-                }
-            }
-            int count = 0;
-            for(int m = (en.length() - partIndex); m < en.length(); m++)
-            {
-                temp[m] = key.charAt(count);
-                count++;
-            }
+        	if(key.length() >= en.length())
+        	{
+            		for(int i =0; i<en.length(); i++)
+            		{
+               			 temp[i] = key.charAt(i);
+            		}
+        	}
+        	else // To wrap around if needed and use of remainder and quotient to duplicate the key if too small.
+        	{
+            		int fullIndex = en.length() / key.length();
+            		int partIndex = en.length() % key.length();
+            		for(int i = 0; i < fullIndex; i++)
+            		{
+                		int j = (i * key.length());
+                		for(int n = 0; n < key.length(); n++)
+                		{
+                   			 temp[j] = key.charAt(n);
+                    			j++;
+                		}
+           	}
+            	int count = 0;
+            	for(int m = (en.length() - partIndex); m < en.length(); m++)
+            	{
+                	temp[m] = key.charAt(count);
+                	count++;
+            	}
         }
       
         for( int i = 0; i < en.length(); i++)
@@ -80,16 +80,16 @@ class VigenereCipher
         	int asc1 = (int) en.charAt(i) - base;
         	int asc2 = (int) temp[i] - base;
         	int sum = asc1 + asc2;
-       	    if(sum>25)
-         	{ // check if value needs to be wrapped around.             
-             	sum= (sum-26) + base;
-        	 }
+       	    	if(sum>25)
+         	{             
+             		sum= (sum-26) + base;
+        	}
         	else
         	{
         		sum = sum+base ;
         	}
-        char f = (char) sum ;
-        output[i] = f;
+        	char f = (char) sum ;
+        	output[i] = f;
         }
         String finalans = new String(output);
         System.out.println(finalans); // printing the new vignere encrypted word.
@@ -116,53 +116,52 @@ class VigenereCipher
         }
         else
         {
-        
-        if(key.length() >= en.length())
-        {
-            for(int i =0; i<en.length(); i++)
-            {
-                temp[i] = key.charAt(i);
-            }
-        }
-        else //(key.length() < en.length())
-        {
-            int fullIndex = en.length() / key.length();
-            int partIndex = en.length() % key.length();
-            for(int i = 0; i < fullIndex; i++)
-            {
-                int j = (i * key.length());
-                for(int n = 0; n < key.length(); n++)
-                {
-                    temp[j] = key.charAt(n);
-                    j++;
-                }
-            }
-            int count = 0;
-            for(int m = (en.length() - partIndex); m < en.length(); m++)
-            {
-                temp[m] = key.charAt(count);
-                count++;
-            }
-        }
-        for( int i = 0; i < en.length(); i++)
-        {
-        	int asc1 = (int) en.charAt(i) - base;
-        	int asc2 = (int) temp[i] - base;
-        	int diff = asc1 - asc2;
-       	    if(diff<0)
-         	{ // check if value needs to be wrapped around.             
-             	diff= (diff+26) + base;
-        	 }
-        	else
+        	if(key.length() >= en.length())
         	{
-        		diff = diff+base ;
+            		for(int i =0; i<en.length(); i++)
+            		{
+                		temp[i] = key.charAt(i);
+           		}
         	}
-        char f = (char) diff ;
-        output[i] = f;
-        }
-        String finalans = new String(output);
-        System.out.println(finalans); // printing the new vignere decrypted word.
-        }
+        	else // To wrap around if needed and use of remainder and quotient to duplicate the key if too small.)
+        	{
+            		int fullIndex = en.length() / key.length();
+            		int partIndex = en.length() % key.length();
+            		for(int i = 0; i < fullIndex; i++)
+            		{
+                		int j = (i * key.length());
+                		for(int n = 0; n < key.length(); n++)
+                		{
+                    			temp[j] = key.charAt(n);
+                    			j++;
+                		}
+            		}
+            		int count = 0;
+            		for(int m = (en.length() - partIndex); m < en.length(); m++)
+            		{
+                		temp[m] = key.charAt(count);
+                		count++;
+            		}
+        	}
+        	for( int i = 0; i < en.length(); i++)
+        	{
+        		int asc1 = (int) en.charAt(i) - base;
+        		int asc2 = (int) temp[i] - base;
+        		int diff = asc1 - asc2;
+       	   		if(diff<0)
+         		{             
+             			diff= (diff+26) + base;
+        	 	}
+        		else
+        		{
+        			diff = diff+base ;
+        		}
+        		char f = (char) diff ;
+        		output[i] = f;
+        	}
+        	String finalans = new String(output);
+        	System.out.println(finalans); // printing the new vignere decrypted word.
+        	}
 	}
  }
 
