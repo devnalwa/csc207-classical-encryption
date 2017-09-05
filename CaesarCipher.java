@@ -34,28 +34,27 @@ class CaesarCipher
 		String en ;
 		System.out.printf("Enter the string to encode: ");
 		en = in.nextLine();
-       for(int n = 0; n<26; n++) // loop to display all 26 different possibilities.
-        {
-            System.out.printf("n =" +n+ ":  ");
-            char[] fin = new char[en.length()]; // array creation to hold the new encoded word.
-            for(int i=0;i<en.length();i++)
-            {
-
-                char temp = en.charAt(i);
-                int asc = ((((int) temp) - base) + n) ;
-                if(asc>25){ // check if value needs to be wrapped around.
-                     asc= (asc-26) + base;
-                }
-                else{
-                     asc = asc+base ;
-                }
-                char f = (char) asc ;
-                fin[i] = f;
-            }
-            String finalans = new String(fin);
-            System.out.println(finalans); // printing new string
-        }
-
+       		for(int n = 0; n<26; n++) // loop to display all 26 different possibilities.
+       		{
+            		System.out.printf("n =" +n+ ":  ");
+            		char[] fin = new char[en.length()]; // array creation to hold the new encoded word.
+            		for(int i=0;i<en.length();i++)
+            		{
+                		char temp = en.charAt(i);
+                		int asc = ((((int) temp) - base) + n) ;
+                		if(asc>25){ // check if value needs to be wrapped around.
+                     		asc= (asc-26) + base;
+                	}
+                	else
+			{
+                     		asc = asc+base ;
+                	}
+                	char f = (char) asc ;
+                	fin[i] = f;
+            	}
+            	String finalans = new String(fin);
+            	System.out.println(finalans); // printing new string
+       		}
 	}
 	public static void decryptcaesar() // this method decodes a given string from a user using a specific formula.
 	{
@@ -66,27 +65,26 @@ class CaesarCipher
 		en = in.nextLine();
 		
 		for(int n = 0; n<26; n++)
-        {
-            System.out.printf("n =" +n+ ":  ");
-            char[] fin = new char[en.length()];
-            for(int i=0;i<en.length();i++)
-            {
-
-                char temp = en.charAt(i);
-                int asc = ((((int) temp) - base) - n) ;
-                if(asc<0)
-                {
-                     asc= (asc+26) + base;
-                }
-                else
-                {
-                     asc = asc+base ;
-                }
-                char f = (char) asc ;
-                fin[i] = f;
-            }
-            String finalans = new String(fin);
-            System.out.println(finalans);
+        	{
+            		System.out.printf("n =" +n+ ":  ");
+            		char[] fin = new char[en.length()];
+            		for(int i=0;i<en.length();i++)
+            		{
+               	 		char temp = en.charAt(i);
+                		int asc = ((((int) temp) - base) - n);
+               			if(asc<0)
+                		{
+                    			 asc= (asc+26) + base;
+                		}
+               			else
+               			{
+                    		 asc = asc+base ;
+              			}
+                		char f = (char) asc ;
+               			 fin[i] = f;
+            	}
+            	String finalans = new String(fin);
+            	System.out.println(finalans);
         }
    
     }
